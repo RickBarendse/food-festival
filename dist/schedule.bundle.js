@@ -86,14 +86,30 @@
 /************************************************************************/
 /******/ ({
 
+
+
+/***/ "./assets/js/domMethods.js":
+/*!*********************************!*\
+  !*** ./assets/js/domMethods.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("function createEl(htmlString, attrs, ...children) {\r\n    if (typeof htmlString !== \"string\") {\r\n      throw Error(\"Argument 'htmlString' is required and must be a string\");\r\n    }\r\n  \r\n    const el = document.createElement(htmlString);\r\n  \r\n    if (typeof attrs === \"object\") {\r\n      for (let key in attrs) {\r\n        if (key.substring(0, 2) === \"on\") {\r\n          el.addEventListener(key.substring(2).toLowerCase(), attrs[key]);\r\n        } else {\r\n          el.setAttribute(key, attrs[key]);\r\n        }\r\n      }\r\n    }\r\n  \r\n    children.forEach(function(child) {\r\n      let node;\r\n  \r\n      if (child.constructor.name.includes(\"Element\")) {\r\n        node = child;\r\n      } else {\r\n        node = document.createTextNode(child);\r\n      }\r\n  \r\n      el.appendChild(node);\r\n    });\r\n  \r\n    return el;\r\n  };\r\n\r\n  module.exports = createEl;\n\n//# sourceURL=webpack:///./assets/js/domMethods.js?");
+
+/***/ }),
+
+
 /***/ "./assets/js/schedule.js":
 /*!*******************************!*\
   !*** ./assets/js/schedule.js ***!
   \*******************************/
 /*! no static exports found */
+
 /***/ (function(module, exports) {
 
 eval("throw new Error(\"Module build failed: Error: ENOENT: no such file or directory, open 'C:\\\\Users\\\\Rick's Computer\\\\Desktop\\\\Bootcamp\\\\projects\\\\food-festival\\\\assets\\\\js\\\\schedule.js'\");\n\n//# sourceURL=webpack:///./assets/js/schedule.js?");
+
 
 /***/ })
 
