@@ -3,6 +3,7 @@ const createEl = require("./domMethods");
 const { createLoremIpsum, dateConverter } = require("./helpers");
 
 $(doucment).ready( function() {
+    if (window.location.href.indexOf("schedule") > -1 ) {
 
     const date = new Date();
     const d = date.getDate();
@@ -10,17 +11,15 @@ $(doucment).ready( function() {
     const y = date.getFullYear();
 
     function onEventClick(calEvent) {
-
-    const start = dateConverter(calEvent.start);
-    localStorage.setItem("currentEvent", JSON.stringify({
-        title: calEvent.title,
-        subtitle: start,
-        description: calEvent.description,
-        image: calEvent.image
-    }))
+        const start = dateConverter(calEvent.start);
+        localStorage.setItem("currentEvent", JSON.stringify({
+            title: calEvent.title,
+            subtitle: start,
+            description: calEvent.description,
+            image: calEvent.image
+        }))
     
-    window.location.href = "events.html"
-
+        window.location.href = "events.html"
     }
 
     const events = [
@@ -120,4 +119,6 @@ $(doucment).ready( function() {
     pageEl.appendChild(containerEl1);
     pageEl.appendChild(containerEl2);
     pageEl.appendChild(containerEl3);
-  })
+    
+    }
+});

@@ -9,7 +9,11 @@ function createEl(htmlString, attrs, ...children) {
       for (let key in attrs) {
         if (key.substring(0, 2) === "on") {
           el.addEventListener(key.substring(2).toLowerCase(), attrs[key]);
-        } else {
+        } else  if (key === "style") {
+          for (let rule in attrs[key]) {
+            el.style[rule] = attrs[key][rule];
+          }
+        } else {  
           el.setAttribute(key, attrs[key]);
         }
       }
